@@ -1,12 +1,13 @@
 
 <h2 mat-dialog-title>
     {{data.title}}
-</h2>
 
-<mat-dialog-content *ngFor="let field of data.form">
     <span>
         {{ modalForm.value | json}}
     </span>
+</h2>
+
+<mat-dialog-content *ngFor="let field of data.form">
     <mat-form-field [formGroup]="modalForm">
         <mat-label>
             {{field.placeholder}}
@@ -23,7 +24,7 @@
     <button
         mat-flat-button
         mat-dialog-close
-        mat-dialog-colse=""
+        mat-dialog-colse=''
         color="primary"
         >
         {{data.actionValue}}

@@ -42,4 +42,6 @@ export class ModalComponent implements OnInit {
     return this.modalForm.value
   }
 
+
+
 }
