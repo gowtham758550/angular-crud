@@ -5,16 +5,18 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export interface modalData {
   title: string,
   actionValue: string,
+  actionButtonColor: string,
   form: [
     {
       label: string,
       formControlName: string,
       placeholder: string,
       required: boolean,
+      color: string
     }
   ],
   formGroup: object,
-  values: string
+  values: string,
 }
 
 @Component({
@@ -39,7 +41,7 @@ export class ModalComponent implements OnInit {
   }
 
   addProduct() {
-    console.log(this.modalForm.value)
+    // console.log(this.modalForm.value)
   }
 
 

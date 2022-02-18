@@ -6,3 +6,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
     flex: 1 1 auto;
 }
+
+.table {
+    margin: 20px 50px;
+    padding: 10px;
+}
+
+.mat-icons {
+    font-size: 20px;
+}

@@ -12,18 +12,21 @@ export class AppComponent {
   addModalData:object = {
     title: "Add Product",
     actionValue: "Add",
+    actionButtonColor: "primary",
     form: [
       {
         label: 'Product Name',
         formControlName: 'productName',
         placeholder: 'Enter product name',
-        required: true
+        required: true,
+        color: 'primary'
       },
       {
         label: 'Brand',
         formControlName: 'brand',
         placeholder: 'Enter Brand name',
-        required: true
+        required: true,
+        color: 'primary'
       },
     ],
     formGroup: {
