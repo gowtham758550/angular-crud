@@ -60,7 +60,7 @@ export class TableComponent implements AfterViewInit {
   }
 
   editProduct(id:number): void {
-    this.editModalData = {...this.editModalData, ...{formGroup: this.dataSource.data[id]}}
+    this.editModalData = {...this.editModalData, ...{formGroup: this.dataSource.data[id -1]}}
     let editProduct = this.dialog.open(ModalComponent, { data: this.editModalData })
   }
 
