@@ -38,8 +38,8 @@ export class ModalComponent implements OnInit {
     )
   }
 
-  addProduct():object {
-    return this.modalForm.value
+  addProduct() {
+    console.log(this.modalForm.value)
   }
 
 
