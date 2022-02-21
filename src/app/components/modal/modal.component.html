@@ -21,18 +21,21 @@
 <ng-template #nothing></ng-template>
 
 <mat-dialog-actions>
-    <button
-        mat-flat-button
-        (click)="addProduct()"
-        mat-dialog-close
-        color={{data.actionButtonColor}}
-        >
-        {{data.actionValue}}
-    </button>
+    <div class="spacer"></div>
     <button
         mat-button
         mat-dialog-close
         >
         Cancel
+    </button>
+    <button
+        mat-flat-button
+        (click)="action(data.snackBarMessage, data.snackBarActionValue)"
+        mat-dialog-close
+        mat-dialog-close="delete"
+        color={{data.actionButtonColor}}
+        [disabled]="!modalForm.valid"
+        >
+        {{data.actionValue}}
     </button>
 </mat-dialog-actions>

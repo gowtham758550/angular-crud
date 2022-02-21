@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { ModalComponent } from './components/modal/modal.component';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ export class AppComponent {
     title: "Add Product",
     actionValue: "Add",
     actionButtonColor: "primary",
+    snackBarMessage: "Product added successfully",
+    snackBarActionValue: "Ok",
     form: [
       {
         label: 'Product Name',
@@ -30,8 +33,8 @@ export class AppComponent {
       },
     ],
     formGroup: {
-      productName: '',
-      brand: ''
+      productName: ['', Validators.required],
+      brand: ['', Validators.required]
     },
     get string():object {
       console.log()

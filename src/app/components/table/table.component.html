@@ -39,7 +39,7 @@
           mat-icon-button 
           color="warn"
           aria-label="edit product"
-          (click)="deleteProduct()"
+          (click)="deleteProduct(row.id)"
         >
           <mat-icon [inline]="true">delete</mat-icon>
         </button>

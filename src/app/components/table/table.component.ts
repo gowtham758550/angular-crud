@@ -24,6 +24,8 @@ export class TableComponent implements AfterViewInit {
     title: "Edit Product",
     actionValue: "Update",
     actionButtonColor: "accent",
+    snackBarMessage: "Product updated successfully",
+    snackBarActionValue: "Ok",
     form: [
       {
         label: 'Product Name',
@@ -46,6 +48,8 @@ export class TableComponent implements AfterViewInit {
     title: "Do you really want to delete?",
     actionValue: "Delete",
     actionButtonColor: "warn",
+    snackBarMessage: "Product deleted successfully",
+    snackBarActionValue: "Ok",
     formGroup: {}
   }
 
@@ -59,12 +63,17 @@ export class TableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
-  editProduct(id:number): void {
-    this.editModalData = {...this.editModalData, ...{formGroup: this.dataSource.data[id -1]}}
+  editProduct(id: number): void {
+    this.editModalData = {...this.editModalData, ...{formGroup: this.dataSource.data[id - 1]}}
     let editProduct = this.dialog.open(ModalComponent, { data: this.editModalData })
   }
 
-  deleteProduct(): void {
+  deleteProduct(id: number): void {
     let deleteModal = this.dialog.open(ModalComponent, { data: this.deleteModalData })
+    deleteModal.afterClosed().subscribe(result => {
+      if (result === "delete") {
+        console.log(this.dataSource.data[id - 1])
+      }
+    })
   }
 }
