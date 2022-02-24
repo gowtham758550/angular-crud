@@ -5,16 +5,66 @@
 
 <div *ngIf="data.hasOwnProperty('form') else nothing">
     <mat-dialog-content *ngFor="let field of data.form">
-        <mat-form-field [formGroup]="modalForm" color={{field.color}}>
-            <mat-label>
-                {{field.placeholder}}
-            </mat-label>
-            <input
-                matInput 
-                type="text"
-                formControlName={{field.formControlName}}
-            >
-        </mat-form-field>
+        <form
+            [formGroup]="modalForm"
+            [ngSwitch]="field.inputType">
+            <!-- matinput -->
+            <div
+                *ngSwitchCase="'input'">
+                <mat-form-field 
+                    color={{field.color}} >
+                    <mat-label>
+                        {{field.placeholder}}
+                    </mat-label>
+                    <input
+                        matInput 
+                        type="text"
+                        formControlName={{field.formControlName}} >
+                </mat-form-field>
+            </div>
+
+            <!-- mat autocomplete -->
+            <div
+                *ngSwitchCase="'autoComplete'" >
+                <mat-form-field
+                    color="field.color">
+                    <mat-label>
+                        {{field.placeholder}}
+                    </mat-label>
+                    <input
+                        matInput 
+                        type="text"
+                        formControlName="{{field.formControlName}}"
+                        [matAutocomplete]="auto" >
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option 
+                            *ngFor="let option of field.options" 
+                            [value]="option" >
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+
+            <!-- mat select -->
+            <div
+                *ngSwitchCase="'select'" >
+                <mat-form-field
+                    color="field.color" >
+                    <mat-label>
+                        {{field.label}}
+                    </mat-label>
+                    <mat-select>
+                        <mat-option
+                            *ngFor="let option of field.options" [value]="option" >
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </div>
+
+        </form>
     </mat-dialog-content>
 </div>
 

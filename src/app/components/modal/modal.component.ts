@@ -11,7 +11,9 @@ export interface modalData {
   snackBarActionValue: string,
   form: [
     {
+      inputType: string,
       label: string,
+      options: any,
       formControlName: string,
       placeholder: string,
       required: boolean,

@@ -17,13 +17,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
-    TableComponent
+    TableComponent,
+    ViewProductComponent
   ],
   entryComponents: [ModalComponent],
   imports: [
@@ -40,7 +44,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

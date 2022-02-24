@@ -18,6 +18,7 @@ export class AppComponent {
     snackBarActionValue: "Ok",
     form: [
       {
+        inputType: 'input',
         label: 'Product Name',
         formControlName: 'productName',
         placeholder: 'Enter product name',
@@ -25,16 +26,27 @@ export class AppComponent {
         color: 'primary'
       },
       {
+        inputType: 'autoComplete',
         label: 'Brand',
+        options: ['ASUS', 'LG', 'Samsung', 'RealMe', 'Oppo'],
         formControlName: 'brand',
         placeholder: 'Enter Brand name',
         required: true,
         color: 'primary'
       },
+      {
+        inputType: 'select',
+        label: 'Color',
+        options: ['Black', 'White', 'Green', 'Red', 'Blue'],
+        formControlName: 'color',
+        required: true,
+        color: 'primary'
+      }
     ],
     formGroup: {
       productName: ['', Validators.required],
-      brand: ['', Validators.required]
+      brand: ['', Validators.required],
+      color: ['', Validators.required]
     },
     get string():object {
       console.log()
